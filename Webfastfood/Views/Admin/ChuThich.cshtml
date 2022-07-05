@@ -1,0 +1,67 @@
+﻿@model Webfastfood.Models.SanPham
+
+@{
+    ViewBag.Title = "ChuThich";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông Tin Chi Tiết Món Ăn</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Loại Món : 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDLoaiSanPham)
+        </dd>
+
+        <dt>
+            Tên Món :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            Giá Bán
+        </dt>
+
+        <dd>
+            @string.Format("{0:0,0}", Model.DonGia) VND
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật :
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Chú Thích : 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuThich)
+        </dd>
+
+        <dt>
+            Hình Ảnh :
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/product_Img/" + Model.HinhAnh)" style=" width: 100px " />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa Món", "SuaMon", new { id = Model.IDSanPham }) |
+    @Html.ActionLink("Trở Về", "SanPham","Admin")
+</p>

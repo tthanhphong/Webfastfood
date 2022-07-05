@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/FastFood/Index">Trang Chủ</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Giới Thiệu", "gioithieu", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Đăng ký", "DangKy", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Đăng Nhập", "DangNhap", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Liên Hệ", "Lienhe", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.Action("GioHangPatial", "GioHang")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Đơn hàng", "DonHang", "FastFood")
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row carousel-holder">
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" style="height: 343px;">
+                                <div class="item active">
+                                    <img class="slide-image" src="~/images/hero-bg.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/images/banner2.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/product_Img/banner3.png" alt=""/>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!--Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!--Phần Download App-->
+                <div class="footer-col-1">
+                    <h3>Tải ứng Dụng</h3>
+                    <p>Tải ứng Dụng android hoặc IOS cho điện thoại của bạn.</p>
+                    <div class="app-logo">
+                        <img src="~/images/app-store.jpg" width="200px" />
+                        <img src="~/images/play-store.jpg" width="200px" />
+                    </div>
+                </div>
+                <!--Logo Footer-->
+                <div class="footer-col-2" style="text-align:center">
+                    <img src="~/images/a2.png" />
+                    <p>Mục đích của chúng tôi là bền vững làm cho thuận tiện và lợi ích của các món ăn nhanh có thể chia sẽ được với nhiều người</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Giờ mở cửa</h3>
+                    <div>
+                        Từ 8:00 - 22:00 tất cả các ngày trong tuần (bao gồm cả các ngày lễ, ngày Tết).
+                    </div>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Hệ thống cửa hàng</h3>
+                    <div class="ft-contact-address">
+                        Địa chỉ: 10/80C XL Hà Nội, Phường Tân Phú, Thủ Đức, Thành phố Hồ Chí Minh
+                    </div>
+                    <div class="ft-contact-tel">
+                        Số điện thoại: <a href="tel:0912252304">0912252304</a>
+                    </div>
+                    <div class="ft-contact-email">
+                        Email: <a href="mailto:thanhdatpqkg23@gmail.com">thanhdatpqkg23@gmail.com</a>
+                    </div>
+                    <div class="ft-certification">
+                        <a href="javascript:void(0)"><img src="~/images/ft_certi_img15eef.png" alt="Đã thông báo Bộ Công Thương" /></a>
+                        <a href="javascript:void(0)"><img src="~/images/ft_certi_img25eef.png" alt="Đã đăng ký Bộ Công Thương" /></a>
+                    </div>
+                </div>
+            </div>
+            <!--Chân footer-->
+            <hr>
+            <p class="copyright">copyright 2022 - Nhóm Brother's' Code</p>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

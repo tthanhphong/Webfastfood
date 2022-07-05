@@ -1,0 +1,60 @@
+﻿<style>
+    .dathang {
+        background-color: red; 
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        font-weight:bold;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .dathang {
+        background-color: white;
+        color: Red;
+        border: 2px solid red;
+    }
+
+        .dathang:hover {
+            background-color: red;
+            color: red;
+        }
+
+a{
+    color:black;
+}
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông Tin Món Ăn</h2>
+<h3>Tên Món : @Model.TenSanPham</h3>
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <div>
+        <li>
+            <img alt="@Model.TenSanPham" width="100%" src="~/images/@Model.HinhAnh"/>
+        </li>
+    </div>
+</div>
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <div>
+        <p style="color : red;font-size:25px ">Mô tả:</p>
+        <p style="text-align:justify;font-size:30px ">@Model.ChuThich</p>
+    </div>
+    <div>
+        <p style="color : red;font-size:25px ">
+            Giá: @string.Format("{0:0,0}", @Model.DonGia) VND
+        </p>
+    </div>
+    <div class="dathang">
+        <a href="@Url.Action("ThemGioHang", "GioHang", new {@iIDSanPham = @Model.IDSanPham, @strURL= Request.Url.ToString()})">Đặt Hàng</a>
+    </div>
+</div>
+

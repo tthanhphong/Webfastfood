@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Webfastfood.Models.LoaiSanPham>
+<p class="lead">Menu</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+
+        <a href="@Url.Action("SPTheoMenu","FastFood", new { id = item.IDLoaiSanPham})" class="list-group-item ">@item.TenLoaiSanPham</a>
+
+    }
+</div>

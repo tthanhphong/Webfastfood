@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Webfastfood.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Đơn Hàng</h2>
+
+<table class="table">
+    <tr>
+        <th style="width:70px">Mã Khách Hàng:</th>
+        <th style="width:100px">Tình Trạng Giao Hàng</th>
+        <th style="width:200px">Tên Khách Hàng</th>
+        <th style="width:100px">Địa Chỉ</th>
+        <th style="width:100px">Số Điện Thoại</th>
+        <th style="width:100px">Ngày Đặt</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.IDKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThaiGiaoHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.HoTenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDH)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = item.IDDonDatHang }) | 
+                @Html.ActionLink("Hủy", "Delete", new { id = item.IDDonDatHang })
+            </td>
+        </tr>
+    }
+
+</table>

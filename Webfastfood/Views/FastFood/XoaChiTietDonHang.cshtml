@@ -1,0 +1,48 @@
+﻿@model Webfastfood.Models.ChiTietDDH
+
+@{
+    ViewBag.Title = "XoaChiTietDonHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Xoá Chi Tiết Đơn Hàng</h2>
+
+<h3>Bạn có chắc bạn muốn xóa không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Món:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanPham.TenSanPham)
+        </dd>
+
+        <dt>
+            Số lượng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            Giá:
+        </dt>
+
+        <dd>
+            @string.Format("{0:0,0}", Model.Gia) VNĐ
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "DonHang")
+        </div>
+    }
+</div>

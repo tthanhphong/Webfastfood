@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Webfastfood.Models.KhachHang>
+
+@{
+    ViewBag.Title = "QLKH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Khách Hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã Khách Hàng
+        </th>
+        <th>
+            Tên Khách Hàng
+        </th>
+        <th>
+            Tên Tài Khoảng
+        </th>
+        <th>
+            Mật Khẩu
+        </th>
+        <th>
+            Ngày Sinh
+        </th>
+        <th>
+            Số Điện Thoại
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a href="javascript:" onclick="XoaKH(@item.IDKhachHang)">Xoá</a>
+            </td>
+        </tr>
+     }
+
+</table>

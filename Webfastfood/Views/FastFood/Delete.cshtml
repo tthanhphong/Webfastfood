@@ -1,0 +1,70 @@
+﻿@model Webfastfood.Models.DonDatHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông Tin Huỷ Đơn Đặt Hàng</h2>
+
+<h3>Bạn phải xoá chi tiết hoá đơn rồi mới huỷ đơn hàng!!!</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Đã thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+
+        <dt>
+            Trạng thái giao hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThaiGiaoHang)
+        </dd>
+
+        <dt>
+            Địa chỉ giao hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiGH)
+        </dd>
+
+        <dt>
+            Ngày đặt:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDH)
+        </dd>
+
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dt>
+            Khách hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.HoTenKhachHang)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "DonHang")
+        </div>
+    }
+</div>

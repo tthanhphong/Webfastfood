@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Webfastfood.Models.DonDatHang>
+
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Đơn Đặt Hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th style="width:100px">Mã Đơn</th>
+        <th style="width:100px">Đã Thanh Toán</th>
+        <th style="width:100px">Tình Trạng Giao Hàng</th>
+        <th style="width:80px">Địa Chỉ Giao</th>
+        <th style="width:80px">Ngày Đặt</th>
+        <th style="width:100px">Ngày Giao </th>
+        <th style="width:80px">Tên Khách Hàng</th>
+        <th style="width:100px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDDonDatHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThaiGiaoHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayGiao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.HoTenKhachHang)
+            </td>
+
+            <td>
+                @Html.ActionLink("Cập Nhật", "Edit", new { id = item.IDDonDatHang }) |
+                @Html.ActionLink("Chi Tiết", "ChiTiet", new { id = item.IDDonDatHang }) |
+                
+                <a href="javascript:" onclick="XoaDonHang(@item.IDDonDatHang)">Xoá</a>
+            </td>
+        </tr>
+     }
+
+</table>

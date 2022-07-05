@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Webfastfood.Models.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="col-md-3">
+    @Html.Action("Menu", "FastFood")
+</div>
+<h3 style="text-align:center;color:red">MENU</h3>
+<div class=" row">
+    @foreach (var sanPham in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <li>
+                    <a href="@Url.Action("Details","FastFood", new {id = sanPham.IDSanPham })">
+                        <img alt="@sanPham.TenSanPham" src="~/images/@sanPham.HinhAnh" ,width="80px" />
+                        <span>@sanPham.TenSanPham</span>
+                        <div>
+                            @string.Format("{0:0,0}", sanPham.DonGia) VNĐ
+                        </div>
+                    </a>
+                </li>
+
+            </div>
+        </div>
+    }
+</div>

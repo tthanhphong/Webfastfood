@@ -1,0 +1,43 @@
+﻿@model Webfastfood.Models.DonDatHang
+
+@{ ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml"; }
+
+<h2>Chi Tiết Đơn Hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @foreach (var item in ViewBag.ctdh)
+        {
+            <dt>
+                Món:
+            </dt>
+            <dd>
+                @item.sp.TenSanPham
+            </dd>
+            <dt>
+                Đơn giá:
+            </dt>
+            <dd>
+                @string.Format("{0:0,0}", @item.sp.DonGia) VNĐ
+            </dd>
+            <dt>
+                Số Lượng:
+            </dt>
+            <dd>
+                @item.ctddh.SoLuong
+            </dd>
+            <dd style="color:red">
+                <a href="@Url.Action("XoaChiTietDonHang","FastFood", new { id = item.ctddh.IDDonDatHang })">
+                    Xoá chi tiết để huỷ đơn hàng!
+                </a>
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "DonHang")
+</p>
